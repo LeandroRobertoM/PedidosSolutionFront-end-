@@ -1,0 +1,60 @@
+<div class="container-fluid page">
+  <div class="d-flex page__box p-3 mt-2">Cadastro Pedido</div>
+  <div class="page__content shadow p-3 position-relative">
+    <div class="page__content-data position-absolute">
+      <form [formGroup]="form" (ngSubmit)="salvar()">
+        <div class="row">
+          <div class="form-group col-md-2">
+            <label for="name" class="custom-label">Codigo</label>
+            <input type="text" class="form-control custom-input"  id="idPedido" disabled=""
+              name="idPedido"  autocomplete="off" required>
+          </div>
+        </div>
+        <br>
+          <div class="form-group col-md-6">
+            <label for="name" class="custom-label">CPF</label>
+            <input type="text" class="form-control custom-input"  id="cpf" formControlName="cpf"
+              name="cpf"  autocomplete="off">
+          </div>
+        <br>
+        <div class="row">
+          <div class="form-group col-md-12">
+            <label for="produto" class="control-label">Produto</label>
+            <select class="form-select" id="produto" formControlName="produto">
+              <option *ngFor="let produto of produtos" [ngValue]="produto.idproduto">{{produto.descricao}}</option>
+            </select>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="form-group col-md-4">
+            <label for="name" class="custom-label">Data Pedido:</label>
+            <input type="date" class="form-control custom-input" formControlName="dataPedido" id="dataPedido"
+              name="dataPedido" autocomplete="off" required>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="name" class="custom-label">Quantidade:</label>
+            <input type="text" class="form-control custom-input" formControlName="quantidadeProduto"
+              id="quantidadeProduto" name="quantidadeProduto">
+          </div>
+          <br>
+        </div>
+        <div id="actions" class="row">
+          <div class="col-md-12">
+            <button mat-raised-button type="submit" value="salvar" [disabled]="form.invalid"
+              color="primary">Salvar</button>
+            <a href="index.php" class="btn btn-default">Cancelar</a>
+          </div>
+        </div>
+        <div class="alert alert-danger mt-1" *ngIf="form.invalid && !form.pristine">
+          <span *ngIf="form.get('quantidadeProduto')?.errors?.['required']">O Quantidade é Obrigatório!<br></span>
+          <span *ngIf="form.get('dataPedido')?.errors?.['required']"> O campo Data  é Obrigatório!<br></span>
+          <span *ngIf="form.get('valorTotal')?.errors?.['required']"> O campo Valor é Obrigatório!<br></span>
+          <span *ngIf="form.get('quantidadeProduto')?.errors?.['required']"> O campo Quantidade é Obrigatório!<br></span>
+          <span *ngIf="form.get('quantidadeProduto')?.errors?.['maxlength']"> O campo Quantidade É Superior que tem em Estoque<br></span>
+          <span *ngIf="form.get('quantidadeProduto')?.errors?.['minlength']"> O campo Quantidade deve ser Superior  Zero<br></span>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

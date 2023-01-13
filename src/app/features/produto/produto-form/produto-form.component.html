@@ -1,0 +1,53 @@
+<div class="container-fluid page">
+    <div class="d-flex page__box p-3 mt-2">Cadastro Produto</div>
+    <div class="page__content shadow p-3 position-relative">
+      <div class="page__content-data position-absolute">
+  
+        <form [formGroup]="form" (ngSubmit)="salvar()">
+          <div class="row">
+            <div class="form-group col-md-2">
+              <label for="name" class="custom-label">Codigo</label>
+              <input type="text" class="form-control custom-input"  id="idProduto" disabled=""
+                name="idProduto"  autocomplete="off" required>
+            </div>
+            <div class="form-group col-md-7">
+              <label for="name" class="custom-label">Descricao Produto</label>
+              <input type="text" class="form-control custom-input" formControlName="descricao" id="descricao" name="descricao"
+                autocomplete="off" required>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="form-group col-md-4">
+              <label for="name" class="custom-label">Preço R$:</label>
+              <input type="text" class="form-control custom-input" formControlName="precoUnitario" id="precoUnitario" name="precoUnitario"
+                 autocomplete="off" required>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="name" class="custom-label">Data Validade:</label>
+              <input type="date" class="form-control custom-input" formControlName="dataValidade" id="dataValidade"
+                name="dataValidade"  autocomplete="off" required>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="name" class="custom-label">Quantidade:</label>
+              <input type="text" class="form-control custom-input"  formControlName="quantidade" id="quantidade"
+              name="quantidade"
+              >
+            </div>
+            <br>
+          </div>
+          <div id="actions" class="row">
+            <div class="col-md-12">
+              <button mat-raised-button type="submit" value="salvar" [disabled]="form.invalid"
+                color="primary">Salvar</button>
+              <a href="index.php" class="btn btn-default">Cancelar</a>
+            </div>
+          </div>
+          <div class="alert alert-danger mt-1" *ngIf="form.invalid && !form.pristine">
+            <span *ngIf="form.get('descricao')?.errors?.['required']">A descrição do produto é obrigatório!<br></span>
+            <span *ngIf="form.get('descricao')?.errors?.['minlength']">A descrição do produto deve conter deve conter no minimo 3 digitos<br></span>
+          </div>
+      </form>
+    </div>
+  </div>
+  </div>

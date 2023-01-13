@@ -1,0 +1,56 @@
+<div class="container-fluid page">
+  <div class="d-flex page__box p-3 mt-2">Cadastro Pedido</div>
+  <div class="page__content shadow p-3 position-relative">
+    <div class="page__content-data position-absolute">
+      <form [formGroup]="form" (ngSubmit)="update()">
+        <div class="row">
+          <div class="form-group col-md-3">
+            <label for="name" class="custom-label">Codigo</label>
+            <input type="text" class="form-control custom-input" formControlName="idPedido" id="idPedido"
+              name="idproduto" [(ngModel)]="pedido.idPedido" autocomplete="off" required>
+          </div>
+          <br>
+          <br>
+          <br>
+          <br>
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="name" class="custom-label">Status do Pedido:</label>
+              <div class="col" [ngSwitch]="pedido.status">
+                <span *ngSwitchCase="0">Status atual: Em andamento</span>
+                <span *ngSwitchCase="1">Status atual: Em transito</span>
+                <span *ngSwitchCase="2">Status atual: Finalizado</span>
+              </div>
+            </div>
+          </div>
+          <br>
+          <br>
+          <br>
+          <div class="row">
+            <div class="form-group col-md-4">
+              <div class="form-group">
+                <label for="name" class="custom-label">Alterar Status Pedido:</label>
+                <select class="form-select" id="status" formControlName="status">
+                  <option value="0">Em andamento</option>
+                  <option value="1">Em transito</option>
+                  <option value="2">Finalizado</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div id="actions" class="row">
+            <div class="col-md-12">
+              <button mat-raised-button type="submit" value="salvar" [disabled]="form.invalid"
+                color="primary">Salvar</button>
+              <a href="index.php" class="btn btn-default">Cancelar</a>
+            </div>
+          </div>
+        </div>
+        <div class="alert alert-danger mt-1" *ngIf="form.invalid && !form.pristine">
+          <span *ngIf="form.get('quantidadeProduto')?.errors?.['required']">O Campo Status É Obrigatório<br></span>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

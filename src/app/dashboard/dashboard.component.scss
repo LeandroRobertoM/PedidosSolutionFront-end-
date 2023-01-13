@@ -1,0 +1,23 @@
+.page {
+    color: white;
+    padding: 0 1rem;
+    background: #f1f5f9;
+
+    &__box {
+        min-height: 30px;
+        background: #1e293b;
+        margin: 0 -1rem;
+        font-size: 25px;
+    }
+
+    &__content {
+        min-height: calc(80vh - 18px);
+        border-radius: 8px;
+        margin-top: -1rem;
+        background: white;
+        color: black;
+        font-size: 12px;
+    }
+
+
+}

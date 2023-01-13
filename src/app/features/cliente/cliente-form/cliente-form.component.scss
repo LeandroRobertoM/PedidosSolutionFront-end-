@@ -1,0 +1,51 @@
+.page {
+    color: white;
+    padding: 0 1rem;
+    background: #f1f5f9;
+
+    &__box {
+        min-height: 30px;
+        background: #1e293b;
+        margin: 0 -1rem;
+        font-size: 25px;
+    }
+
+    &__content {
+        min-height: calc(80vh - 18px);
+        border-radius: 8px;
+        margin-top: -1rem;
+        background: white;
+        color: black;
+        font-size: 12px;
+    }
+
+    
+    .custom-label {
+        font-size: 14px;
+    }
+
+    .custom-input {
+        font-size: 13px;
+    }
+
+
+    form {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+    }
+    
+    button {
+        margin: 20px 15px 0px 0px;
+    }
+
+    .mat-snack-bar-container{
+        color: #155724 !important;
+        background-color: #d4edda !important;
+        border-color: #c3e6cb !important;
+      }
+      ::ng-deep .mat-simple-snackbar-action {
+        color: red;
+      }
+
+}
