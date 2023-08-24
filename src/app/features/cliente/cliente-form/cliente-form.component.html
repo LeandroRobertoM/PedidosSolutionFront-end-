@@ -33,7 +33,7 @@
         </div>
         <div class="alert alert-danger mt-1" *ngIf="form.invalid && !form.pristine">
           <span *ngIf="form.get('cpf')?.errors?.['required']">O cpf do cliente é obrigatório!<br></span>
-          <span *ngIf="form.get('cpf')?.errors?.['maxlength']">O cpf deve ter no máximo 11 digitos<br></span>
+          <span *ngIf="form.get('cpf')?.errors?.['maxlength']">O cpf deve ter no máximo 11 digitos se nao da erro<br></span>
           <span *ngIf="form.get('nome')?.errors?.['minlength']">o nome deve conter do cliente é obrigatório!<br></span>
         </div>
     </form>
